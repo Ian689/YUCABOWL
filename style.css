@@ -1,0 +1,124 @@
+/* --- 1. CONFIGURACIÓN DEL FONDO Y CUERPO --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Tu imagen de fondo */
+    background-image: url('Imagenes/FONDO.jpg'); 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 2. ESTILOS DE IMÁGENES Y RESALTE --- */
+img {
+    display: block;
+    height: auto;
+    /* El resalte: sombra y bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+}
+
+/* --- 3. PRIMERA IMAGEN (HERO) - AJUSTE CELULAR --- */
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0; /* Espacio arriba y abajo */
+}
+
+.hero img {
+    width: 85%; /* No toca los bordes laterales en celular */
+    max-width: 700px; /* Límite para PC */
+}
+
+/* --- 4. SEGUNDA IMAGEN (MENÚ) --- */
+.menu-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.menu-image img {
+    width: 92%; /* Ligeramente más ancha que la primera, pero con aire */
+    max-width: 700px; /* Límite para PC */
+}
+
+/* --- 5. CARRUSEL --- */
+.carousel-container {
+    position: relative;
+    width: 92%; /* Se adapta al ancho del menú en celular */
+    max-width: 700px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    background-color: white;
+}
+
+.carousel-slide img {
+    display: none;
+    width: 100%;
+    border-radius: 0; /* Quitamos radio interno para que lo mande el contenedor */
+    box-shadow: none; /* Quitamos sombra interna */
+}
+
+.carousel-slide img.active {
+    display: block;
+}
+
+/* Botones del carrusel */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+#prevBtn { left: 15px; }
+#nextBtn { right: 15px; }
+
+/* --- 6. BOTÓN WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* --- 7. AJUSTES PARA COMPUTADORA (PANTALLAS GRANDES) --- */
+@media (min-width: 768px) {
+    .hero, .menu-image {
+        padding: 40px 0;
+    }
+    
+    /* Forzamos el ancho exacto que querías en PC */
+    .hero img, 
+    .menu-image img, 
+    .carousel-container {
+        width: 700px !important;
+    }
+}
